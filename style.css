@@ -34,11 +34,26 @@ button {
 
 .books > div {
   /* FIXME: give this section a different coloured background, then remove
-   * border */
+   * border 
+   * - Also, it breaks when the screen gets too small, but maybe don't worry
+   * about this until I've done media queries with TOP; also may have something
+   * to do with forcing 3 items at all times
+   * */
   background: grey;
   border-radius: 10px;
   padding: 30px;
   margin: 5px;
   display: grid;
   grid-template-rows: 1fr 2fr;
+}
+
+.add-book {
+  background: none;
+  border: none;
+  justify-self: end;
+  margin-right: 14vw;
+}
+
+.add-book > img {
+  height: 2rem;
 }

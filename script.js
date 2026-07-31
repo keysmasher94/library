@@ -1,7 +1,16 @@
+/* TODO:
+ * Future desires:
+ * - Add a search function
+ * - Add pictures
+ * - Add a sort function
+ * - Add a toggle to switch between current books and wishlist books
+ * - Add persistent memory
+ */
 const books = document.querySelector(".books");
 const dialog = document.querySelector("#book-dialog");
 const form = document.querySelector("#book-form");
 const addBookBtn = document.querySelector(".add-book");
+const secondHeading = document.querySelector(".second-heading");
 
 const myLibrary = [];
 
@@ -24,6 +33,15 @@ function addBookToLibrary(name, author, year, read) {
 function displayBooks() {
   // Clear the container before rendering
   books.innerHTML = "";
+
+  // Write string if there are no books
+  if (myLibrary.length === 0) {
+    secondHeading.textContent = "Press '+' to add a book";
+    return;
+  } else {
+    secondHeading.textContent = "Current Books";
+  }
+
   for (book of myLibrary) {
     // Create a new book card and info section
     const bookCard = document.createElement("div");
@@ -39,7 +57,7 @@ function displayBooks() {
     year.textContent = `Year Published: ${book.year}`;
 
     const id = document.createElement("p");
-    id.textContent = `ID: ${book.id}`;
+    id.textContent = `Library ID: ${book.id.slice(0, 8)}`;
 
     const read = document.createElement("p");
     if (book.read === true) {

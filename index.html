@@ -10,17 +10,20 @@
     />
     <meta name="viewport" content="width=device-width,initial-value=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/images/book.svg" />
     <script src="script.js" defer></script>
-    <title>Library</title>
+    <title>'The' Library</title>
   </head>
   <body>
-    <h1>The Library</h1>
+    <h1>'The' Library</h1>
     <main>
-      <h2>Current Books</h2>
+      <h2 class="second-heading">Current Books</h2>
       <div class="books"></div>
     </main>
 
-    <button class="add-book">Add Book</button>
+    <button class="add-book">
+      <img src="./assets/images/add.svg" alt="add icon" />
+    </button>
     <dialog id="book-dialog">
       <form method="dialog" id="book-form">
         <h2>Add a Book</h2>
@@ -36,11 +39,11 @@
         <br />
 
         <label for="year">Year Published</label>
+        <!-- TODO: show the requested format to enter in -->
         <input
           type="text"
           id="year"
           name="year"
-          <!-- TODO: show the requested format to enter in -->
           pattern="[1-2][0-9]{3}"
           required
         />

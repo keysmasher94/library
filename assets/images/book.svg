@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="100%" stop-color="#5C3317"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse cx="200" cy="250" rx="140" ry="18" fill="#000" opacity="0.15"/>
+
+  <!-- Left cover -->
+  <path d="M200 50
+           Q140 30 80 50
+           L80 220
+           Q140 200 200 220 Z"
+        fill="url(#cover)"
+        stroke="#4A2511"
+        stroke-width="3"/>
+
+  <!-- Right cover -->
+  <path d="M200 50
+           Q260 30 320 50
+           L320 220
+           Q260 200 200 220 Z"
+        fill="url(#cover)"
+        stroke="#4A2511"
+        stroke-width="3"/>
+
+  <!-- Left page -->
+  <path d="M200 60
+           Q145 45 95 60
+           L95 210
+           Q145 195 200 210 Z"
+        fill="#FFFDF5"
+        stroke="#DDD"/>
+
+  <!-- Right page -->
+  <path d="M200 60
+           Q255 45 305 60
+           L305 210
+           Q255 195 200 210 Z"
+        fill="#FFFDF5"
+        stroke="#DDD"/>
+
+  <!-- Spine -->
+  <line x1="200" y1="50" x2="200" y2="220"
+        stroke="#6B3A1A"
+        stroke-width="4"/>
+
+  <!-- Left page lines -->
+  <g stroke="#CFCFCF" stroke-width="1">
+    <line x1="110" y1="85" x2="185" y2="85"/>
+    <line x1="110" y1="105" x2="185" y2="105"/>
+    <line x1="110" y1="125" x2="185" y2="125"/>
+    <line x1="110" y1="145" x2="185" y2="145"/>
+    <line x1="110" y1="165" x2="185" y2="165"/>
+  </g>
+
+  <!-- Right page lines -->
+  <g stroke="#CFCFCF" stroke-width="1">
+    <line x1="215" y1="85" x2="290" y2="85"/>
+    <line x1="215" y1="105" x2="290" y2="105"/>
+    <line x1="215" y1="125" x2="290" y2="125"/>
+    <line x1="215" y1="145" x2="290" y2="145"/>
+    <line x1="215" y1="165" x2="290" y2="165"/>
+  </g>
+</svg>
