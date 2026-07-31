@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-au">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-value=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <h1>The Library</h1>
+    <main>
+      <h2>Current Books</h2>
+      <div class="books"></div>
+    </main>
+
+    <button class="add-book">Add Book</button>
+    <dialog id="book-dialog">
+      <form method="dialog" id="book-form">
+        <h2>Add a Book</h2>
+
+        <label for="name">Title</label>
+        <input type="text" id="name" name="name" required />
+        <br />
+        <br />
+
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" required />
+        <br />
+        <br />
+
+        <label for="year">Year Published</label>
+        <input
+          type="text"
+          id="year"
+          name="year"
+          pattern="[1-2][0-9]{3}"
+          required
+        />
+        <br />
+        <br />
+
+        <p>Have you read this book?</p>
+        <label>
+          <input type="radio" name="read" value="true" checked />
+          yes</label
+        >
+        <label>
+          <input type="radio" name="read" value="false" />
+          no</label
+        >
+        <br />
+        <br />
+
+        <button value="submit">Add Book</button>
+        <button value="cancel" type="submit" formnovalidate>Cancel</button>
+      </form>
+    </dialog>
+  </body>
+</html>
