@@ -12,6 +12,8 @@ function Book(name, author, year, read) {
   this.year = year;
   this.read = read;
   this.id = crypto.randomUUID();
+  // TODO: Add a function to toggle the book's 'read' status between true and
+  // false
 }
 
 function addBookToLibrary(name, author, year, read) {
@@ -58,6 +60,8 @@ function displayBooks() {
       books.removeChild(bookCard);
     });
 
+    // TODO: add a button for toggling 'read' status
+
     // Add the book card to the list of books
     bookCard.appendChild(title);
     infoSection.appendChild(author);
@@ -85,7 +89,7 @@ dialog.addEventListener("close", () => {
 
   addBookToLibrary(
     data.get("name"),
-    data.get("autho"),
+    data.get("author"),
     Number(data.get("year")),
     data.get("read") === "true",
   );
