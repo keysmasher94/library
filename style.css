@@ -40,6 +40,10 @@ button {
   padding: 10px;
 }
 
+/* 
+ * XXX: it would be good if I knew media queries; when the screen is wide and
+ * there's one item it looks odd
+ */
 .books > div {
   background: #521510;
   border-radius: 10px;
