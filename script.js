@@ -69,7 +69,7 @@ function displayBooks() {
     secondHeading.textContent = "Current Books";
   }
 
-  for (book of myLibrary) {
+  for (let book of myLibrary) {
     // Create a new book card and info section
     const bookCard = document.createElement("div");
     const infoSection = document.createElement("div");
