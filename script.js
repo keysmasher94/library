@@ -1,3 +1,23 @@
+/*
+ * <one line to give the program's name and a brief idea of what it does.>
+ *   'The' Library - A simple web app that keeps track of book details; part of
+ *   TOP
+ *   Copyright (C) 2026  Jared Lynch
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 /* TODO:
  * Future desires:
  * - Add a search function
@@ -6,6 +26,7 @@
  * - Add a toggle to switch between current books and wishlist books
  * - Add persistent memory
  */
+
 const books = document.querySelector(".books");
 const dialog = document.querySelector("#book-dialog");
 const form = document.querySelector("#book-form");
@@ -22,8 +43,13 @@ function Book(name, author, year, read) {
   this.year = year;
   this.read = read;
   this.id = crypto.randomUUID();
-  // TODO: Add a function to toggle the book's 'read' status between true and
-  // false
+  this.changeRead = function () {
+    if (this.read === true) {
+      this.read = false;
+    } else {
+      this.read = true;
+    }
+  };
 }
 
 function addBookToLibrary(name, author, year, read) {
@@ -64,11 +90,11 @@ function displayBooks() {
     if (book.read === true) {
       read.textContent = "This book has been read";
       read.style.color = "green";
-      read.style.fontWeight = 600;
+      read.style.fontWeight = 900;
     } else {
       read.textContent = "This book has not yet been read";
       read.style.color = "red";
-      read.style.fontWeight = 600;
+      read.style.fontWeight = 900;
     }
 
     // Add delete button
@@ -80,7 +106,13 @@ function displayBooks() {
       myLibrary.splice(indexNo, 1);
     });
 
-    // TODO: add a button for toggling 'read' status
+    // Add a button to change the 'read' status
+    const changeRead = document.createElement("button");
+    changeRead.textContent = "Change Read Status";
+    changeRead.addEventListener("click", () => {
+      book.changeRead();
+      displayBooks();
+    });
 
     // Add the book card to the list of books
     bookCard.appendChild(title);
@@ -89,6 +121,7 @@ function displayBooks() {
     infoSection.appendChild(id);
     infoSection.appendChild(read);
     infoSection.appendChild(del);
+    infoSection.appendChild(changeRead);
     bookCard.appendChild(infoSection);
     books.appendChild(bookCard);
   }
