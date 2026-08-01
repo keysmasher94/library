@@ -11,6 +11,7 @@ const dialog = document.querySelector("#book-dialog");
 const form = document.querySelector("#book-form");
 const addBookBtn = document.querySelector(".add-book");
 const secondHeading = document.querySelector(".second-heading");
+const yearInput = document.querySelector("#year");
 
 const myLibrary = [];
 
@@ -71,11 +72,12 @@ function displayBooks() {
     }
 
     // Add delete button
-    // FIXME: this should remove the book from the array as well
     const del = document.createElement("button");
     del.textContent = "Delete Book";
     del.addEventListener("click", () => {
       books.removeChild(bookCard);
+      const indexNo = myLibrary.indexOf(book);
+      myLibrary.splice(indexNo, 1);
     });
 
     // TODO: add a button for toggling 'read' status
@@ -112,6 +114,20 @@ dialog.addEventListener("close", () => {
     data.get("read") === "true",
   );
   displayBooks();
+});
+
+// Validates year input
+yearInput.addEventListener("input", () => {
+  yearInput.setCustomValidity("");
+  yearInput.checkValidity();
+});
+
+yearInput.addEventListener("invalid", () => {
+  if (yearInput.value === "") {
+    yearInput.setCustomValidity("Enter a year");
+  } else {
+    yearInput.setCustomValidity("Enter a year from 100-2999");
+  }
 });
 
 // Displays initial books on page load
